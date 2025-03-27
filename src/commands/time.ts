@@ -33,7 +33,7 @@ export async function execute(interaction: ChatInputCommandInteraction) {
   const hours = getHours(date);
   const minutes = getMinutes(date);
 
-  interaction.reply(getClockEmoji(hours, minutes));
+  interaction.reply({ content: getClockEmoji(hours, minutes), ephemeral: true });
   stateSoundSystems[interaction.guildId].play({
     channelId: member.voice.channel.id,
     sound: getSoundPath("it_is"),
